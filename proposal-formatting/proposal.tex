@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{hyperref}
+
+\title{ECNS 460 Project Proposal}
+\author{Quinlin Gregg}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The American Gaming Association, a trade group representing casinos and other gambling institutions,
+projects that \$35 billion will be bet on the 2024 National Football League (NFL) season \cite{nflbettingamount}.
+The sports betting market in the US makes \$14.30 billion in revenue as of 2024,
+and is expected to grow to \$23.80 billion by 2029.
+Of this, \$2.8 billion (19.6\%) was on American football in 2024 \cite{sportsbettingmarketsize}.
+
+A spread bet is a type of bet where the bettor bets whether the team favored to win will win by at least
+\textit{n} points, where \textit{n} is a margin set by the sportsbook. A team's performance Against the
+Spread (ATS) is defined as the percentage of games where a favored team wins by at least \textit{n}
+points or an underdog team loses by fewer than \textit{n} points.
+
+\section{Research Question}
+Does a team's rank in offensive yards and/or points correlate to their performance Against the Spread?
+What about in defensive yards and/or points?
+
+\section{Methods}
+Data on season-level offensive and defensive statistical performance of NFL teams can be pulled
+from sites like \href{https://www.pro-football-reference.com}{Pro Football Reference}.
+Historical betting odds can be pulled from various aggregation sites that archive historical odds
+from various sportsbooks. This project is looking to use American or Australian sportsbooks.
+The advantage of American sportsbooks is that they are more relevant to a United States-centric
+NFL audience, but legal sports betting is fairly new in the United States leading to limited historical
+data. By contrast, sports betting has been legal in Australia for much longer, meaning there is
+much more historical data.
+
+The game-level betting odds will be converted
+to season-level by aggregating ATS performance over the season. These season-level ATS values will be
+merged into the season-level statistical performance data. The ranks of team teams in all relevant
+statistical categories will be calculated to remove time trends. The ranks will then be regressed
+with the ATS values to find any relevant relationships.
+
+The results will be presented alongside a Shiny project to make the results more accessible to
+those who may not have R or other statistical tools. The site could allow the user to gain familiarity
+with trends in NFL statistics as well as explore how each team has performed historically ATS relative
+to expectations based on their statistical ranks.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
