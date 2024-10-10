@@ -4,4 +4,5 @@
 
 ### Question
 
-Have the oddsmakers of Australian betting companies improved at setting odds that reflect the outcome of NFL regular season and postseason games? Does the extent to which they did or did not improve differ based on the types of odds being made?
+Does a team's rank in offensive yards and/or points correlate to their performance Against the Spread?
+What about in defensive yards and/or points?
