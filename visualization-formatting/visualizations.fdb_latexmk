@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1733347485.36262 "c:/Users/qcars/Documents/07-semester-fall-2024/07-ECNS-460/ECNS-460-Final-Project/visualization-formatting/visualizations.tex" "visualizations.pdf" "visualizations" 1733347499.24681 0
+["pdflatex"] 1734123249.19305 "c:/Users/qcars/Documents/07-semester-fall-2024/07-ECNS-460/ECNS-460-Final-Project/visualization-formatting/visualizations.tex" "visualizations.pdf" "visualizations" 1734123254.11214 0
   "../plots/abs_dev.png" 1731001937 119772 85e2d72588a9d657833c768a3aa1031b ""
   "../plots/fg_per_game.png" 1731001934 133254 d843d1b2fbc1efd60c4e8e7f24edf78f ""
   "../plots/punt_per_game.png" 1731001935 140487 3b3febf0ca2176a3d39d99f1833a15af ""
@@ -71,10 +71,10 @@
   "C:/Users/qcars/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/qcars/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657797096 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/qcars/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/qcars/Documents/07-semester-fall-2024/07-ECNS-460/ECNS-460-Final-Project/visualization-formatting/visualizations.tex" 1733347483 6157 e4d8f6e8f66328f325b02c795121575c ""
-  "visualizations.aux" 1733347498 673 ff243fc95ca16cac94fe2f20f35d256b "pdflatex"
-  "visualizations.out" 1733347489 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "visualizations.tex" 1733347483 6157 e4d8f6e8f66328f325b02c795121575c ""
+  "c:/Users/qcars/Documents/07-semester-fall-2024/07-ECNS-460/ECNS-460-Final-Project/visualization-formatting/visualizations.tex" 1734123244 6147 81e6cc39980bcb2419e6e27d87e3964e ""
+  "visualizations.aux" 1734123253 673 ff243fc95ca16cac94fe2f20f35d256b "pdflatex"
+  "visualizations.out" 1734123250 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "visualizations.tex" 1734123244 6147 81e6cc39980bcb2419e6e27d87e3964e ""
   (generated)
   "visualizations.aux"
   "visualizations.log"

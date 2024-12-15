@@ -1,5 +1,5 @@
 library(shiny)
-library(dplyr)
+library(dplyr, warn.conflicts=FALSE)
 library(ggplot2)
 
 team_names = list(
@@ -83,7 +83,21 @@ score_names = list(
     "Touchdowns Allowed" = "def_touchdown",
     "Field Goals Allowed" = "def_field_goal",
     "Safeties Allowed" = "off_safety",
-    "Punts Forced" = "def_punt"
+    "Punts Forced" = "def_punt",
+    
+    "Points Rank" = "off_points_rank",
+    "Yards Rank" = "off_points_rank",
+    "Touchdowns Rank" = "off_touchdown_rank",
+    "Field Goal Rank" = "off_field_goal_rank",
+    "Safeties Rank" = "def_safeties_rank",
+    "Punts Rank" = "off_punt_rank",
+    
+    "Points Allowed Rank" = "def_points_rank",
+    "Yards Allowed Rank" = "def_points_rank",
+    "Touchdowns Allowed Rank" = "def_touchdown_rank",
+    "Field Goal Allowed Rank" = "def_field_goal_rank",
+    "Safeties Allowed Rank" = "off_safeties_rank",
+    "Punts Allowed Rank" = "def_punt_rank"
 )
 
 color_similarity = function(hex1, hex2) {
@@ -214,11 +228,27 @@ ui = fluidPage(
             ),
             
             tabPanel(
-                "ATS Predicators",
-                selectInput(
-                    "ats_predictor",
-                    "Select Play Metric:",
-                    choices = score_names[c(-1, -2)]
+                "Record Predicators",
+                fluidRow(
+                    column(
+                        6,
+                        selectInput(
+                            "ats_against",
+                            "Select Record Type:",
+                            choices = list(
+                                "Record" = "record",
+                                "Record ATS" = "record_ats"
+                            )
+                        )
+                    ),
+                    column(
+                        6,
+                        selectInput(
+                            "ats_predictor",
+                            "Select Play Metric:",
+                            choices = score_names[c(-1, -2)]
+                        )
+                    )
                 ),
                 plotOutput("ats_plot")
             )
@@ -359,17 +389,25 @@ server = function(input, output) {
     
     output$ats_plot = renderPlot({
         predictor_col = rlang::parse_expr(input$ats_predictor)
-        model = lm(record_ats ~ eval(predictor_col), data=league)
+        predictor_against = rlang::parse_expr(input$ats_against)
+        model = lm(eval(predictor_against) ~ eval(predictor_col), data=league)
         rsq = summary(model)$r.squared
         
         rsq_color = ifelse(rsq<0.05, "red", ifelse(rsq<0.15, "#cc3", "darkgreen"))
         
-        ggplot(league, aes(x = !!sym(input$ats_predictor), y = record_ats)) +
+        ggplot(league, aes(x = !!sym(input$ats_predictor), y = !!sym(input$ats_against))) +
             geom_point(size = 3, color = "blue") +
             annotate(
                 "text", 
                 x = Inf, y = Inf, 
-                label = paste("Slope: ", round(model$coefficients[2], 5), " R-squared: ", round(rsq, 2)), 
+                label = paste(
+                    "Slope: ",
+                    round(model$coefficients[2], 5),
+                    " Intercept: ",
+                    round(model$coefficients[1], 5),
+                    " R-squared: ",
+                    round(rsq, 2)
+                ), 
                 hjust = 1, vjust = 1, 
                 size = 5, color = rsq_color
             ) +
